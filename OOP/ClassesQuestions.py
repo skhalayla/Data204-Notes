@@ -4,10 +4,13 @@ print("\nQ1a\n")
 
 # A1a:
 class Country:
-    def __init__(self, continent, climate, language):
-        self.continent = self.continent(continent)
-        self.climate = self.climate(climate)
-        self.language = self.language(language)
+    def __init__(self, continent, climate, language): #init = initialise
+        self.continent = continent
+        self.climate = climate
+        self.language = language
+
+france = Country("europe", "hfdjsk", "french")
+print(france.continent)
 
 
 #%%
