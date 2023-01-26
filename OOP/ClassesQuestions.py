@@ -19,8 +19,9 @@ print("\nQ1b\n")
 
 # A1b:
 class City(Country):
-    def __init__(self, continent, climate, language):
+    def __init__(self, continent, climate, language, city_name):
         super().__init__(continent, climate, language)
+        self.city_name = city_name
 
 # -------------------------------------------------------------------------------------- #
 #%%
@@ -55,7 +56,7 @@ prime_numbers = []
 for x in list_of_numbers:
     y = Number(x).is_prime() #calling the method is_prime within the Number class. ALL METHODS NEED BRACKETS AT END. y represents true or false bc we r pulling it from there.
     if y == True:
-        prime_numbers.append(x)
+        prime_numbers.append(x) #adding x to prime number list
     else:
         pass #pass means skip/move on. functions r valid but they dont do anything.
 
