@@ -64,27 +64,29 @@ same thing but using functions:
 
 import csv #importing package
 
-def open_file(file_name):
-    with open(file_name, "r") as csvfile:
-        csvreader = csv.reader(csvfile)
-        new_list_of_lists = []
+def open_file(file_name): #defining function
+    with open(file_name, "r") as csvfile: #opening file with the alias 'csvfile' and reading it.
+        csvreader = csv.reader(csvfile) #naming csvreader to use later. this is us acc reading the file we said is open in reading mode in the line above
+        new_list_of_lists = [] #an empty list that we r going to append all the info in the file to.
         for line in csvreader:
-            new_list_of_lists.append(line)
-        return new_list_of_lists
+            new_list_of_lists.append(line) #for every row in csvreader we r going to add it to our new_list_of_lists
+        return new_list_of_lists #returned a list of lists containing all data
 
-def transform_csv(file_name):
-    old_data = open_file(file_name)
+def transform_csv(file_name): #transformation is the cleaning
+    old_data = open_file(file_name) #calling prev function to use in this function. without this we cannot access the data we read above
     clean_data = []
     for lines in old_data:
         username = lines[4].split('@')[0]
-        row = [lines[1], lines[2], username]
-        clean_data.append(row)
+        row = [lines[1], lines[2], username] #this is the new list that will be produced
+        clean_data.append(row) #adding this list to the new data which will be another list of lists
     return clean_data
 
 def write_csv(old_file, new_file):
-    with open(new_file, "w") as csv_writer:
-        csvwriter = csv.writer(csv_writer)
-        csvwriter.writerows(transform_csv(old_file))
+    with open(new_file, "w") as csv_writer: #creating a file w new file w ability to write it w alias csv_writer
+        csvwriter = csv.writer(csv_writer) #creating variable to be able to acc write to it. this reps the new file.
+        csvwriter.writerows(transform_csv(old_file)) #this is us acc writing to it
 
-write_csv("user_details.csv", "new_file.csv")
+write_csv("user_details.csv", "new_file.csv") #this is just so we r able to run it. "calling the function"
 
+
+# %%
